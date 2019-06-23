@@ -39,3 +39,9 @@ Test on k8s:
 http -v :30000/calls from=1111 to=2222
 http -v :30000/calls/ea2c6243-6858-4d5d-8287-4e39d6b5141d/actions/play url="http://example.com/hello.mp3"
 ```
+
+Tail logs with Stern:
+```
+stern call-control
+stern 'call-control|tel-switch'
+```
