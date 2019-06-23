@@ -6,6 +6,7 @@ Talk: Observable Elixir Services
 1. Services in the dark
 2. Collect logs: API, service calls, custom logs, remove logs for `/health`
 3. Propagate request ID
+4. Propagate request ID: across process boundary
 
 ## Cheatsheet (fish shell)
 

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: call-control
-        image: call-control:0.0.3
+        image: call-control:0.0.4
         ports:
         - name: http
           containerPort: 4000

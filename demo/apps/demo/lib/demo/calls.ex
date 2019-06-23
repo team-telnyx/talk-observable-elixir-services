@@ -13,8 +13,11 @@ defmodule Demo.Calls do
   end
 
   def play(%{call_id: call_id, url: url}) do
+    logger_metadata = Logger.metadata()
+
     play_task =
       Task.async(fn ->
+        Logger.metadata(logger_metadata)
         TelSwitchClient.play(%{call: call_id, url: url})
       end)
 
