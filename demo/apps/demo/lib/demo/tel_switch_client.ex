@@ -29,5 +29,5 @@ defmodule Demo.TelSwitchClient do
     |> Tesla.client()
   end
 
-  defp base_url, do: config()[:base_url]
+  defp base_url, do: Keyword.fetch!(config(), :base_url)
 end

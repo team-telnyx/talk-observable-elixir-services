@@ -23,3 +23,8 @@ Run release:
 env MIX_ENV=prod mix release
 forego run _build/prod/rel/demo/bin/demo foreground
 ```
+
+Deploy services to k8s:
+```
+./services/deploy.sh
+```
