@@ -21,3 +21,16 @@ spec:
         env:
         - name: TEL_SWITCH_BASE_URL
           value: http://tel-switch/tel-switch
+        livenessProbe:
+          exec:
+            command:
+              - /demo/bin/demo
+              - ping
+          initialDelaySeconds: 5
+          periodSeconds: 30
+          timeoutSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: http
+          initialDelaySeconds: 5

@@ -12,6 +12,12 @@ defmodule DemoWeb.Router do
     plug Plug.AuthorizeCall
   end
 
+  scope "/", DemoWeb do
+    pipe_through :api
+
+    get "/health", HealthController, :show
+  end
+
   # Call Control
 
   scope "/calls", DemoWeb do
