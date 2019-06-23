@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: call-control
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: call-control
+  template:
+    metadata:
+      labels:
+        app: call-control
+    spec:
+      containers:
+      - name: call-control
+        image: call-control:0.0.1
+        ports:
+        - name: http
+          containerPort: 4000
+        env:
+        - name: TEL_SWITCH_BASE_URL
+          value: http://tel-switch/tel-switch

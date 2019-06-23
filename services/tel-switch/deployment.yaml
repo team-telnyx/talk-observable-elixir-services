@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tel-switch
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tel-switch
+  template:
+    metadata:
+      labels:
+        app: tel-switch
+    spec:
+      containers:
+      - name: tel-switch
+        image: tel-switch:0.0.1
+        ports:
+        - name: http
+          containerPort: 4000
