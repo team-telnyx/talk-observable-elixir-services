@@ -1,6 +1,10 @@
 Talk: Observable Elixir Services
 ================================
 
+## Demos
+
+1. Services in the dark
+
 ## Cheatsheet (fish shell)
 
 Generate simple Phoenix service with HTTP API:
@@ -24,7 +28,14 @@ env MIX_ENV=prod mix release
 forego run _build/prod/rel/demo/bin/demo foreground
 ```
 
-Deploy services to k8s:
+Build and deploy services to k8s:
 ```
+./services/build.sh
 ./services/deploy.sh
+```
+
+Test on k8s:
+```
+http -v :30000/calls from=1111 to=2222
+http -v :30000/calls/ea2c6243-6858-4d5d-8287-4e39d6b5141d/actions/play url="http://example.com/hello.mp3"
 ```
