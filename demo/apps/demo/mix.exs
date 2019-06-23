@@ -31,6 +31,7 @@ defmodule Demo.MixProject do
     [
       {:uuid, "~> 1.1"},
       {:tesla, "~> 1.2"},
+      {:tesla_request_id, "~> 0.2.0"},
       {:hackney, "~> 1.15"},
       {:confex, "~> 3.4"}
     ]
