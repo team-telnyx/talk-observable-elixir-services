@@ -1,5 +1,7 @@
 use Mix.Config
 
+config :demo, Demo.TelSwitchClient, base_url: {:system, "TEL_SWITCH_BASE_URL"}
+
 config :demo_web,
   generators: [context_app: :demo]
 
@@ -14,5 +16,7 @@ config :logger, :console,
   metadata: [:request_id]
 
 config :phoenix, :json_library, Jason
+
+config :tesla, adapter: Tesla.Adapter.Hackney
 
 import_config "#{Mix.env()}.exs"

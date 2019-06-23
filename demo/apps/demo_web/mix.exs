@@ -30,9 +30,9 @@ defmodule DemoWeb.MixProject do
 
   defp deps do
     [
+      {:demo, in_umbrella: true},
       {:phoenix, "~> 1.4.7"},
       {:phoenix_pubsub, "~> 1.1"},
-      {:demo, in_umbrella: true},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"}
     ]

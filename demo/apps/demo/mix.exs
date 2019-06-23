@@ -28,7 +28,12 @@ defmodule Demo.MixProject do
   defp elixirc_paths(_), do: ["lib"]
 
   defp deps do
-    []
+    [
+      {:uuid, "~> 1.1"},
+      {:tesla, "~> 1.2"},
+      {:hackney, "~> 1.15"},
+      {:confex, "~> 3.4"}
+    ]
   end
 
   defp aliases do

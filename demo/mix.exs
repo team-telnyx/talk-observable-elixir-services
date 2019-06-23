@@ -10,6 +10,8 @@ defmodule Demo.Umbrella.MixProject do
   end
 
   defp deps do
-    []
+    [
+      {:credo, "~> 1.1", only: [:dev, :test], runtime: false}
+    ]
   end
 end
