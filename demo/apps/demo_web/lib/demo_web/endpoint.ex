@@ -5,7 +5,9 @@ defmodule DemoWeb.Endpoint do
     plug Phoenix.CodeReloader
   end
 
+  plug DemoWeb.Plug.Health
   plug Plug.RequestId
+  plug Plug.Logger
 
   plug Plug.Parsers,
     parsers: [:urlencoded, :json],

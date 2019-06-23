@@ -1,0 +1,55 @@
+defaultRules:
+  create: false
+
+prometheusOperator:
+  kubeletService:
+    enabled: false
+
+prometheus:
+  enabled: false
+
+alertmanager:
+  enabled: false
+
+grafana:
+  serviceMonitor:
+    selfMonitor: false
+  defaultDashboardsEnabled: false
+  sidecar:
+    datasources:
+      defaultDatasourceEnabled: false
+  additionalDataSources:
+  - name: prom
+    access: proxy
+    editable: false
+    type: prometheus
+    url: http://prom:9090/
+    isDefault: true
+  adminPassword: password
+
+kubeApiServer:
+  enabled: false
+
+kubelet:
+  enabled: false
+
+kubeControllerManager:
+  enabled: false
+
+coreDns:
+  enabled: false
+
+kubeDns:
+  enabled: true
+
+kubeEtcd:
+  enabled: false
+
+kubeScheduler:
+  enabled: false
+
+kubeStateMetrics:
+  enabled: false
+
+nodeExporter:
+  enabled: false

@@ -1,4 +1,5 @@
 defmodule Demo.Calls do
+  require Logger
   alias Demo.{Factorial, TelSwitchClient}
 
   def dial(%{from: from, to: to}) do
@@ -23,5 +24,9 @@ defmodule Demo.Calls do
 
   defp generate_call_id, do: UUID.uuid4()
 
-  defp calc_something, do: Factorial.of(5_000)
+  defp calc_something do
+    Logger.info("Calculating something...")
+    Factorial.of(5_000)
+    Logger.info("Calculating something... DONE")
+  end
 end

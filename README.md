@@ -4,6 +4,7 @@ Talk: Observable Elixir Services
 ## Demos
 
 1. Services in the dark
+2. Collect logs: API, service calls, custom logs, remove logs for `/health`
 
 ## Cheatsheet (fish shell)
 
@@ -44,4 +45,22 @@ Tail logs with Stern:
 ```
 stern call-control
 stern 'call-control|tel-switch'
+```
+
+Install Prometheus Operator:
+```
+helm init
+helm upgrade --install prom \
+  -f prometheus/operator.yaml \
+  stable/prometheus-operator
+```
+
+Install Loki:
+```
+helm upgrade --install loki loki/loki-stack
+```
+
+Port-forward Grafana:
+```
+kubectl port-forward service/prom-grafana 3000:80
 ```

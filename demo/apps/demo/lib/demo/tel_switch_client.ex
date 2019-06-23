@@ -1,5 +1,6 @@
 defmodule Demo.TelSwitchClient do
   use Confex, otp_app: :demo
+  require Logger
 
   def dial(%{call: _call, from: _from, to: _to} = data) do
     call("/dial", data)
@@ -17,14 +18,16 @@ defmodule Demo.TelSwitchClient do
 
   def parse_response({:ok, %{status: 200}}), do: :ok
 
-  def parse_response(_error) do
+  def parse_response(error) do
+    Logger.info("Service call to tel-switch failed: #{inspect(error)}")
     {:error, %{error: :service_call_failed, service: :tel_switch}}
   end
 
   def client do
     [
       {Tesla.Middleware.BaseUrl, base_url()},
-      Tesla.Middleware.JSON
+      Tesla.Middleware.JSON,
+      Tesla.Middleware.Logger
     ]
     |> Tesla.client()
   end
