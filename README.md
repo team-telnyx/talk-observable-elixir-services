@@ -7,6 +7,7 @@ Talk: Observable Elixir Services
 2. Collect logs: API, service calls, custom logs, remove logs for `/health`
 3. Propagate request ID
 4. Propagate request ID: across process boundary
+5. Collect service API metrics: basic instrumentation
 
 ## Cheatsheet (fish shell)
 
@@ -78,4 +79,15 @@ fortio load -qps 2 -c 2 -t 0 \
 fortio load -qps 1 -c 2 -t 0 \
   -content-type 'application/json' -payload '{"url": "http://example.com/hello.mp3"}' \
   localhost:30000/calls/ea2c6243-6858-4d5d-8287-4e39d6b5141d/actions/play
+```
+
+Create Prometheus:
+```
+kubectl apply -f prometheus/prom
+```
+
+Explore in Grafana:
+```
+sum(rate(http_request_duration_microseconds_count{service="call-control"}[$__interval])) by (status_class)
+sum(rate(http_request_duration_microseconds_count{service="call-control"}[$__interval])) by (operation, status_class)
 ```

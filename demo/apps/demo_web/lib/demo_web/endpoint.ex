@@ -6,6 +6,10 @@ defmodule DemoWeb.Endpoint do
   end
 
   plug DemoWeb.Plug.Health
+
+  plug DemoWeb.Metrics.Exporter
+  plug DemoWeb.Metrics.PipelineInstrumenter
+
   plug Plug.RequestId
   plug Plug.Logger
 

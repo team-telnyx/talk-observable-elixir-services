@@ -4,6 +4,7 @@ metadata:
   name: call-control
   labels:
     app: call-control
+    monitor: prom
 spec:
   selector:
     app: call-control

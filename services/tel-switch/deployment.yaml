@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: tel-switch
-        image: tel-switch:0.0.4
+        image: tel-switch:0.0.5
         ports:
         - name: http
           containerPort: 4000

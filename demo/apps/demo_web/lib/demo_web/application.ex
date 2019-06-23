@@ -1,7 +1,13 @@
 defmodule DemoWeb.Application do
   use Application
 
+  alias DemoWeb.Metrics
+
   def start(_type, _args) do
+    Metrics.PhoenixInstrumenter.setup()
+    Metrics.PipelineInstrumenter.setup()
+    Metrics.Exporter.setup()
+
     children = [
       DemoWeb.Endpoint
     ]

@@ -4,6 +4,7 @@ metadata:
   name: tel-switch
   labels:
     app: tel-switch
+    monitor: prom
 spec:
   selector:
     app: tel-switch
