@@ -11,7 +11,8 @@ defmodule Demo.Umbrella.MixProject do
 
   defp deps do
     [
-      {:credo, "~> 1.1", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.1", only: [:dev, :test], runtime: false},
+      {:distillery, "~> 2.0"}
     ]
   end
 end
