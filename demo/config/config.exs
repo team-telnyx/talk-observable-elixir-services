@@ -19,4 +19,6 @@ config :phoenix, :json_library, Jason
 
 config :tesla, adapter: Tesla.Adapter.Hackney
 
+config :prometheus, DemoWeb.Metrics.PipelineInstrumenter, labels: [:operation, :status_class]
+
 import_config "#{Mix.env()}.exs"
