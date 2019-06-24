@@ -15,13 +15,11 @@ defmodule Demo.Calls do
   end
 
   def play(%{call_id: call_id, url: url}) do
-    logger_metadata = Logger.metadata()
     tracing_ctx = :ocp.current_span_ctx()
     tracing_tags = :ocp.current_tags()
 
     play_task =
       Task.async(fn ->
-        Logger.metadata(logger_metadata)
         :ocp.with_span_ctx(tracing_ctx)
         :ocp.with_tags(tracing_tags)
 

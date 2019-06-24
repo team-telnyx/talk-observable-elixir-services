@@ -13,6 +13,7 @@ Talk: Observable Elixir Services
 8. Collect BEAM metrics
 9. Collect service call metrics
 10. Collect traces
+11. Replace request ID with trace ID
 
 ## Cheatsheet (fish shell)
 

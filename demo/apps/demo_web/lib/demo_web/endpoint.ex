@@ -11,7 +11,7 @@ defmodule DemoWeb.Endpoint do
   plug DemoWeb.Metrics.PipelineInstrumenter
 
   plug DemoWeb.Tracing.Plug
-  plug Plug.RequestId
+  plug DemoWeb.Tracing.RequestIdPlug
   plug Plug.Logger
 
   plug Plug.Parsers,

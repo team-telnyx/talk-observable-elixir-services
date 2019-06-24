@@ -26,7 +26,6 @@ defmodule Demo.TelSwitchClient do
   def client(operation) do
     [
       {Tesla.Middleware.BaseUrl, base_url()},
-      Tesla.Middleware.RequestId,
       Tesla.Middleware.JSON,
       Tesla.Middleware.Logger,
       OpencensusTesla.Middleware,
