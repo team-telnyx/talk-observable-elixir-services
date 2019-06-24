@@ -12,6 +12,7 @@ Talk: Observable Elixir Services
 7. Collect service API metrics: dashboards as source code
 8. Collect BEAM metrics
 9. Collect service call metrics
+10. Collect traces
 
 ## Cheatsheet (fish shell)
 
@@ -85,13 +86,21 @@ fortio load -qps 1 -c 2 -t 0 \
   localhost:30000/calls/ea2c6243-6858-4d5d-8287-4e39d6b5141d/actions/play
 ```
 
-Create Prometheus:
+Create and port-farward Prometheus:
 ```
 kubectl apply -f prometheus/prom
+kubectl port-forward service/prom 9090
 ```
 
 Explore in Grafana:
 ```
 sum(rate(http_request_duration_microseconds_count{service="call-control"}[$__interval])) by (status_class)
 sum(rate(http_request_duration_microseconds_count{service="call-control"}[$__interval])) by (operation, status_class)
+```
+
+Install Jaeger:
+```
+helm upgrade --install jaeger stable/jaeger-operator
+kubectl apply -f jaeger
+kubectl port-forward service/jaeger-query 16686
 ```

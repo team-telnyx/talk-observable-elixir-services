@@ -2,6 +2,8 @@ defmodule Demo.Calls do
   require Logger
   alias Demo.{Factorial, TelSwitchClient}
 
+  import Opencensus.Trace
+
   def dial(%{from: from, to: to}) do
     call_id = generate_call_id()
 
@@ -14,10 +16,15 @@ defmodule Demo.Calls do
 
   def play(%{call_id: call_id, url: url}) do
     logger_metadata = Logger.metadata()
+    tracing_ctx = :ocp.current_span_ctx()
+    tracing_tags = :ocp.current_tags()
 
     play_task =
       Task.async(fn ->
         Logger.metadata(logger_metadata)
+        :ocp.with_span_ctx(tracing_ctx)
+        :ocp.with_tags(tracing_tags)
+
         TelSwitchClient.play(%{call: call_id, url: url})
       end)
 
@@ -28,8 +35,10 @@ defmodule Demo.Calls do
   defp generate_call_id, do: UUID.uuid4()
 
   defp calc_something do
-    Logger.info("Calculating something...")
-    Factorial.of(5_000)
-    Logger.info("Calculating something... DONE")
+    with_child_span "heavy-calculation", %{"calculating" => "something"} do
+      Logger.info("Calculating something...")
+      Factorial.of(5_000)
+      Logger.info("Calculating something... DONE")
+    end
   end
 end

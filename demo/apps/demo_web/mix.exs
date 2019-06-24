@@ -36,7 +36,12 @@ defmodule DemoWeb.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:prometheus_plugs, "~> 1.1"},
-      {:prometheus_phoenix, "~> 1.2"}
+      {:prometheus_phoenix, "~> 1.2"},
+      {:opencensus, "~> 0.9.2"},
+      {:opencensus_elixir, "~> 0.3.0"},
+      {:opencensus_jaeger, "~> 0.0.1"},
+      {:opencensus_plug, "~> 0.3.0"},
+      {:opencensus_phoenix, "~> 0.2.0"}
     ]
   end
 

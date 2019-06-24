@@ -2,6 +2,9 @@
 
 FROM elixir:1.8.2-otp-22-alpine as build
 
+ARG SERVICE_NAME
+ENV SERVICE_NAME=${SERVICE_NAME}
+
 RUN mix local.hex --force && \
   mix local.rebar --force
 

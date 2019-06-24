@@ -35,7 +35,8 @@ defmodule Demo.MixProject do
       {:hackney, "~> 1.15"},
       {:confex, "~> 3.4"},
       {:telemetry, "~> 0.4.0"},
-      {:prometheus, "~> 4.4"}
+      {:prometheus, "~> 4.4"},
+      {:opencensus_tesla, "~> 0.2.1"}
     ]
   end
 

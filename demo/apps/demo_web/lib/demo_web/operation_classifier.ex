@@ -1,4 +1,4 @@
-defmodule DemoWeb.Metrics.OperationClassifier do
+defmodule DemoWeb.OperationClassifier do
   @router DemoWeb.Router
 
   alias Plug.Conn

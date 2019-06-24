@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: call-control
+  annotations:
+    "sidecar.jaegertracing.io/inject": "true"
 spec:
   replicas: 2
   selector:
@@ -14,7 +16,7 @@ spec:
     spec:
       containers:
       - name: call-control
-        image: call-control:0.0.7
+        image: call-control:0.0.8
         ports:
         - name: http
           containerPort: 4000

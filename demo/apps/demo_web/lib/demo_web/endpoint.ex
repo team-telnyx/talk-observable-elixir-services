@@ -10,6 +10,7 @@ defmodule DemoWeb.Endpoint do
   plug DemoWeb.Metrics.Exporter
   plug DemoWeb.Metrics.PipelineInstrumenter
 
+  plug DemoWeb.Tracing.Plug
   plug Plug.RequestId
   plug Plug.Logger
 

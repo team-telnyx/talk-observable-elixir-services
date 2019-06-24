@@ -29,6 +29,7 @@ defmodule Demo.TelSwitchClient do
       Tesla.Middleware.RequestId,
       Tesla.Middleware.JSON,
       Tesla.Middleware.Logger,
+      OpencensusTesla.Middleware,
       {Demo.Metrics.Tesla.Middleware.ServiceCall, %{operation: operation}}
     ]
     |> Tesla.client()
