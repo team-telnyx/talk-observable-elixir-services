@@ -9,6 +9,7 @@ Talk: Observable Elixir Services
 4. Propagate request ID: across process boundary
 5. Collect service API metrics: basic instrumentation
 6. Collect service API metrics: by operation
+7. Collect service API metrics: dashboards as source code
 
 ## Cheatsheet (fish shell)
 
