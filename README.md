@@ -10,6 +10,7 @@ Talk: Observable Elixir Services
 5. Collect service API metrics: basic instrumentation
 6. Collect service API metrics: by operation
 7. Collect service API metrics: dashboards as source code
+8. Collect BEAM metrics
 
 ## Cheatsheet (fish shell)
 
