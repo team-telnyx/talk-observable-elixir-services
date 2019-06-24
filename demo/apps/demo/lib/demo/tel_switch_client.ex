@@ -11,7 +11,7 @@ defmodule Demo.TelSwitchClient do
   end
 
   defp call(path, data) do
-    client()
+    client("POST #{path}")
     |> Tesla.post(path, data)
     |> parse_response()
   end
@@ -23,12 +23,13 @@ defmodule Demo.TelSwitchClient do
     {:error, %{error: :service_call_failed, service: :tel_switch}}
   end
 
-  def client do
+  def client(operation) do
     [
       {Tesla.Middleware.BaseUrl, base_url()},
       Tesla.Middleware.RequestId,
       Tesla.Middleware.JSON,
-      Tesla.Middleware.Logger
+      Tesla.Middleware.Logger,
+      {Demo.Metrics.Tesla.Middleware.ServiceCall, %{operation: operation}}
     ]
     |> Tesla.client()
   end
