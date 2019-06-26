@@ -1,7 +1,14 @@
 Talk: Observable Elixir Services
 ================================
 
+[Slides](slides.pdf)
+
 ## Demos
+
+Every demo below is tagged in Git, so e.g. to switch to demo 4, just run:
+```
+git checkout tags/demo-4
+```
 
 1. Services in the dark
 2. Collect logs: API, service calls, custom logs, remove logs for `/health`
