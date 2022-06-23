@@ -22,7 +22,7 @@ RUN mix release --env=prod
 
 # Run
 
-FROM alpine:3.9.4 as run
+FROM alpine:3.13.6 as run
 
 RUN apk upgrade --no-cache && \
   apk add --no-cache bash
